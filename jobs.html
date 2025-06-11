@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Jobs | Kenya Job Share</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #4CAF50;
+            --secondary: #2196F3;
+            --dark: #333;
+            --light: #f9f9f9;
+            --error: #f44336;
+            --success: #4CAF50;
+            --whatsapp: #25D366;
+            --facebook: #4267B2;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 20px;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 20px;
+            position: relative;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a i {
+            margin-right: 5px;
+            font-size: 18px;
+        }
+        
+        .nav-links .active a {
+            color: var(--primary);
+        }
+        
+        .nav-links .active a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        .referral-banner {
+            background: linear-gradient(135deg, var(--primary), #2E7D32);
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.01); }
+            100% { transform: scale(1); }
+        }
+        
+        .banner-content h2 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .banner-content p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .banner-btn {
+            background-color: white;
+            color: var(--primary);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        
+        .banner-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .banner-btn i {
+            margin-right: 8px;
+            color: var(--whatsapp);
+        }
+        
+        .jobs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .job-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .job-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .job-content {
+            padding: 20px;
+        }
+        
+        .job-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .job-description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .earn-tag {
+            display: inline-block;
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--primary);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            color: white;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #1da851;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-facebook {
+            background-color: var(--facebook);
+            color: white;
+        }
+        
+        .btn-facebook:hover {
+            background-color: #365899;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .referral-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.show {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .jobs-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="https://via.placeholder.com/40x40?text=KJS" alt="Kenya Job Share">
+                    <h1>Kenya Job Share</h1>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="active"><a href="jobs.html"><i class="fas fa-briefcase"></i> Jobs</a></li>
+                    <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="referral-banner">
+            <div class="banner-content">
+                <h2>Invite your friends & earn 500 bonus Ksh instantly!</h2>
+                <p>Get Ksh 500 for every friend who joins and shares their first job</p>
+            </div>
+            <button class="banner-btn" id="referralBtn">
+                <i class="fab fa-whatsapp"></i> Share Now
+            </button>
+        </div>
+        
+        <h2 style="margin-bottom: 20px; color: var(--dark);">Available Jobs</h2>
+        
+        <div class="jobs-container" id="jobsContainer">
+            <!-- Jobs will be loaded here dynamically -->
+            <div class="loading">
+                <div class="spinner"></div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Kenya Job Share. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('show');
+            });
+            
+            // Check if user is logged in
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) {
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Referral button
+            document.getElementById('referralBtn').addEventListener('click', function() {
+                window.open('https://api.whatsapp.com/send?text=Join%20me%20on%20this%20awesome%20job%20site!%20https://kenyajobshare.com', '_blank');
+            });
+            
+            // Sample job data
+            const jobs = [
+                {
+                    id: 1,
+                    title: "Safari Hotel Promoter",
+                    description: "Share our luxury hotel deals with your network and earn Ksh 100 per share.",
+                    image: "https://source.unsplash.com/random/600x400/?hotel"
+                },
+                {
+                    id: 2,
+                    title: "Beauty Salon Ambassador",
+                    description: "Promote our salon services and earn commission for every share.",
+                    image: "https://source.unsplash.com/random/600x400/?salon"
+                },
+                {
+                    id: 3,
+                    title: "Travel Agency Affiliate",
+                    description: "Share our amazing travel packages and earn money for each click.",
+                    image: "https://source.unsplash.com/random/600x400/?travel"
+                },
+                {
+                    id: 4,
+                    title: "Gym Membership Promoter",
+                    description: "Help us get more members by sharing our gym offers with friends.",
+                    image: "https://source.unsplash.com/random/600x400/?gym"
+                },
+                {
+                    id: 5,
+                    title: "Fashion Store Marketer",
+                    description: "Earn by sharing our latest fashion collections with your network.",
+                    image: "https://source.unsplash.com/random/600x400/?fashion"
+                },
+                {
+                    id: 6,
+                    title: "Restaurant Promoter",
+                    description: "Share our restaurant deals and earn Ksh 100 for each successful share.",
+                    image: "https://source.unsplash.com/random/600x400/?restaurant"
+                },
+                {
+                    id: 7,
+                    title: "Tech Store Affiliate",
+                    description: "Promote our tech products and gadgets to earn commission.",
+                    image: "https://source.unsplash.com/random/600x400/?electronics"
+                },
+                {
+                    id: 8,
+                    title: "Car Rental Agent",
+                    description: "Share our car rental services and earn money for each referral.",
+                    image: "https://source.unsplash.com/random/600x400/?car"
+                },
+                {
+                    id: 9,
+                    title: "Real Estate Marketer",
+                    description: "Earn by sharing our property listings with potential buyers.",
+                    image: "https://source.unsplash.com/random/600x400/?house"
+                },
+                {
+                    id: 10,
+                    title: "Event Planner Assistant",
+                    description: "Promote our event planning services and earn for each share.",
+                    image: "https://source.unsplash.com/random/600x400/?event"
+                },
+                {
+                    id: 11,
+                    title: "Supermarket Promoter",
+                    description: "Share our supermarket deals and earn commission.",
+                    image: "https://source.unsplash.com/random/600x400/?supermarket"
+                },
+                {
+                    id: 12,
+                    title: "Insurance Affiliate",
+                    description: "Earn by sharing our insurance products with your network.",
+                    image: "https://source.unsplash.com/random/600x400/?insurance"
+                },
+                {
+                    id: 13,
+                    title: "School Marketer",
+                    description: "Promote our educational programs and earn money.",
+                    image: "https://source.unsplash.com/random/600x400/?school"
+                },
+                {
+                    id: 14,
+                    title: "Spa & Wellness Ambassador",
+                    description: "Share our spa packages and earn Ksh 100 per share.",
+                    image: "https://source.unsplash.com/random/600x400/?spa"
+                },
+                {
+                    id: 15,
+                    title: "Photography Studio Promoter",
+                    description: "Earn commission by sharing our photography services.",
+                    image: "https://source.unsplash.com/random/600x400/?photography"
+                }
+            ];
+            
+            // Load jobs
+            const jobsContainer = document.getElementById('jobsContainer');
+            
+            // Simulate loading delay
+            setTimeout(() => {
+                jobsContainer.innerHTML = '';
+                
+                jobs.forEach(job => {
+                    const jobCard = document.createElement('div');
+                    jobCard.className = 'job-card animate__animated animate__fadeIn';
+                    jobCard.innerHTML = `
+                        <img src="${job.image}" alt="${job.title}" class="job-image">
+                        <div class="job-content">
+                            <h3 class="job-title">${job.title}</h3>
+                            <p class="job-description">${job.description}</p>
+                            <span class="earn-tag">Earn Ksh 100</span>
+                            <div class="share-buttons">
+                                <button class="btn btn-whatsapp share-btn" data-job-id="${job.id}" data-job-title="${job.title}" data-platform="whatsapp">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </button>
+                                <button class="btn btn-facebook share-btn" data-job-id="${job.id}" data-job-title="${job.title}" data-platform="facebook">
+                                    <i class="fab fa-facebook-f"></i> Facebook
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    jobsContainer.appendChild(jobCard);
+                });
+                
+                // Add event listeners to share buttons
+                document.querySelectorAll('.share-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const jobId = this.getAttribute('data-job-id');
+                        const jobTitle = this.getAttribute('data-job-title');
+                        const platform = this.getAttribute('data-platform');
+                        
+                        shareJob(jobId, jobTitle, platform);
+                    });
+                });
+            }, 1000);
+            
+            function shareJob(jobId, jobTitle, platform) {
+                // Get current user
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                let users = JSON.parse(localStorage.getItem('users'));
+                
+                // Update user stats
+                currentUser.linksShared += 1;
+                currentUser.earnings += 100;
+                currentUser.balance += 100;
+                
+                // Add transaction
+                const now = new Date();
+                const transaction = {
+                    job: jobTitle,
+                    date: `${now.toISOString().split('T')[0]} ${now.toLocaleTimeString()}`,
+                    amount: 100
+                };
+                
+                currentUser.transactions.unshift(transaction);
+                
+                // Update localStorage
+                localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                
+                // Update in users array
+                const userIndex = users.findIndex(u => u.phone === currentUser.phone);
+                if (userIndex !== -1) {
+                    users[userIndex] = currentUser;
+                    localStorage.setItem('users', JSON.stringify(users));
+                }
+                
+                // Open share link based on platform
+                if (platform === 'whatsapp') {
+                    window.open(`https://api.whatsapp.com/send?text=Check%20this%20out!%20${jobTitle}%20-%20https://kenyajobshare.com/job/${jobId}`, '_blank');
+                } else if (platform === 'facebook') {
+                    window.open(`https://www.facebook.com/sharer/sharer.php?u=https://kenyajobshare.com/job/${jobId}`, '_blank');
+                }
+                
+                // Show success animation
+                const button = document.querySelector(`.share-btn[data-job-id="${jobId}"][data-platform="${platform}"]`);
+                button.innerHTML = '<i class="fas fa-check"></i> Shared!';
+                button.style.backgroundColor = 'var(--success)';
+                
+                setTimeout(() => {
+                    button.innerHTML = platform === 'whatsapp' ? 
+                        '<i class="fab fa-whatsapp"></i> WhatsApp' : 
+                        '<i class="fab fa-facebook-f"></i> Facebook';
+                    button.style.backgroundColor = platform === 'whatsapp' ? 'var(--whatsapp)' : 'var(--facebook)';
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>
