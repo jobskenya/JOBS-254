@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Available Jobs | Kenya Job Share</title>
+    <title>Digital Promotions | Kenya Business Hub</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         :root {
-            --primary: #4CAF50;
-            --secondary: #2196F3;
-            --dark: #333;
-            --light: #f9f9f9;
-            --error: #f44336;
-            --success: #4CAF50;
+            --primary: #4361ee; /* Modern blue instead of green */
+            --secondary: #3a0ca3;
+            --accent: #f72585;
+            --dark: #2b2d42;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --success: #4cc9f0;
             --whatsapp: #25D366;
             --facebook: #4267B2;
+            --instagram: #E1306C;
         }
         
         * {
@@ -40,7 +42,7 @@
         
         header {
             background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -65,8 +67,11 @@
         }
         
         .logo h1 {
-            font-size: 20px;
-            color: var(--primary);
+            font-size: 22px;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .nav-links {
@@ -75,7 +80,7 @@
         }
         
         .nav-links li {
-            margin-left: 20px;
+            margin-left: 25px;
             position: relative;
         }
         
@@ -93,7 +98,7 @@
         }
         
         .nav-links a i {
-            margin-right: 5px;
+            margin-right: 8px;
             font-size: 18px;
         }
         
@@ -107,8 +112,9 @@
             bottom: -5px;
             left: 0;
             width: 100%;
-            height: 2px;
-            background-color: var(--primary);
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
         }
         
         .mobile-menu-btn {
@@ -121,81 +127,137 @@
         }
         
         .referral-banner {
-            background: linear-gradient(135deg, var(--primary), #2E7D32);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            border-radius: 10px;
-            padding: 20px;
+            border-radius: 12px;
+            padding: 25px;
             margin: 30px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            animation: pulse 2s infinite;
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.15);
+            position: relative;
+            overflow: hidden;
         }
         
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.01); }
-            100% { transform: scale(1); }
+        .referral-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
         }
         
         .banner-content h2 {
-            font-size: 20px;
-            margin-bottom: 5px;
+            font-size: 22px;
+            margin-bottom: 8px;
+            font-weight: 600;
         }
         
         .banner-content p {
-            font-size: 14px;
+            font-size: 15px;
             opacity: 0.9;
+            max-width: 600px;
         }
         
         .banner-btn {
             background-color: white;
             color: var(--primary);
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 12px 24px;
+            border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
             transition: all 0.3s;
+            z-index: 1;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         
         .banner-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
         
         .banner-btn i {
             margin-right: 8px;
-            color: var(--whatsapp);
+            font-size: 18px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 40px 0 25px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
         }
         
         .jobs-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
+            gap: 30px;
+            margin-bottom: 50px;
         }
         
         .job-card {
             background-color: white;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
         }
         
         .job-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .job-image-container {
+            width: 100%;
+            height: 180px;
+            position: relative;
+            overflow: hidden;
         }
         
         .job-image {
             width: 100%;
-            height: 180px;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .job-card:hover .job-image {
+            transform: scale(1.05);
+        }
+        
+        .job-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--accent);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 1;
         }
         
         .job-content {
@@ -204,37 +266,37 @@
         
         .job-title {
             font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
+            font-weight: 700;
+            margin-bottom: 12px;
             color: var(--dark);
         }
         
         .job-description {
-            color: #666;
+            color: var(--gray);
             font-size: 14px;
-            margin-bottom: 15px;
-            line-height: 1.5;
+            margin-bottom: 20px;
+            line-height: 1.6;
         }
         
         .earn-tag {
             display: inline-block;
-            background-color: rgba(76, 175, 80, 0.1);
+            background-color: rgba(67, 97, 238, 0.1);
             color: var(--primary);
-            padding: 5px 10px;
+            padding: 6px 12px;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 600;
             margin-bottom: 15px;
         }
         
         .share-buttons {
             display: flex;
-            gap: 10px;
+            gap: 12px;
         }
         
         .btn {
             padding: 10px 15px;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 14px;
             font-weight: 500;
             cursor: pointer;
@@ -248,6 +310,7 @@
         
         .btn i {
             margin-right: 8px;
+            font-size: 16px;
         }
         
         .btn-whatsapp {
@@ -258,7 +321,7 @@
         .btn-whatsapp:hover {
             background-color: #1da851;
             transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
         }
         
         .btn-facebook {
@@ -269,7 +332,18 @@
         .btn-facebook:hover {
             background-color: #365899;
             transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(66, 103, 178, 0.3);
+        }
+        
+        .btn-instagram {
+            background-color: var(--instagram);
+            color: white;
+        }
+        
+        .btn-instagram:hover {
+            background-color: #c13584;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(225, 48, 108, 0.3);
         }
         
         .loading {
@@ -294,16 +368,65 @@
         
         footer {
             text-align: center;
-            padding: 20px;
-            color: #666;
+            padding: 30px 20px;
+            color: var(--gray);
             font-size: 14px;
+            background-color: white;
+            margin-top: 50px;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.03);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            color: var(--dark);
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
         }
         
         @media (max-width: 768px) {
             .referral-banner {
                 flex-direction: column;
                 text-align: center;
-                gap: 15px;
+                gap: 20px;
+            }
+            
+            .banner-btn {
+                width: 100%;
             }
             
             .nav-links {
@@ -323,7 +446,7 @@
             }
             
             .nav-links li {
-                margin: 10px 0;
+                margin: 12px 0;
             }
             
             .mobile-menu-btn {
@@ -341,8 +464,8 @@
         <div class="container">
             <nav class="navbar">
                 <div class="logo">
-                    <img src="https://via.placeholder.com/40x40?text=KJS" alt="Kenya Job Share">
-                    <h1>Kenya Job Share</h1>
+                    <img src="https://via.placeholder.com/40x40?text=KBH" alt="Kenya Business Hub">
+                    <h1>Kenya Business Hub</h1>
                 </div>
                 
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -351,28 +474,38 @@
                 
                 <ul class="nav-links" id="navLinks">
                     <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li class="active"><a href="jobs.html"><i class="fas fa-briefcase"></i> Jobs</a></li>
+                    <li class="active"><a href="jobs.html"><i class="fas fa-bullhorn"></i> Promotions</a></li>
                     <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> Analytics</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     
     <div class="container">
-        <div class="referral-banner">
+        <div class="referral-banner animate__animated animate__fadeIn">
             <div class="banner-content">
-                <h2>Invite your friends & earn 500 bonus Ksh instantly!</h2>
-                <p>Get Ksh 500 for every friend who joins and shares their first job</p>
+                <h2>Boost Your Earnings with Digital Promotions!</h2>
+                <p>Get Ksh 500 for every friend who joins and promotes their first business. Plus, earn 10% of their lifetime earnings!</p>
             </div>
             <button class="banner-btn" id="referralBtn">
-                <i class="fab fa-whatsapp"></i> Share Now
+                <i class="fas fa-share-alt"></i> Invite Friends
             </button>
         </div>
         
-        <h2 style="margin-bottom: 20px; color: var(--dark);">Available Jobs</h2>
+        <h2 class="section-title">Featured Hotel Businesses</h2>
         
-        <div class="jobs-container" id="jobsContainer">
-            <!-- Jobs will be loaded here dynamically -->
+        <div class="jobs-container" id="hotelsContainer">
+            <!-- Hotels will be loaded here dynamically -->
+            <div class="loading">
+                <div class="spinner"></div>
+            </div>
+        </div>
+        
+        <h2 class="section-title">Popular Nairobi Shops</h2>
+        
+        <div class="jobs-container" id="shopsContainer">
+            <!-- Shops will be loaded here dynamically -->
             <div class="loading">
                 <div class="spinner"></div>
             </div>
@@ -380,7 +513,21 @@
     </div>
     
     <footer>
-        <p>&copy; 2023 Kenya Job Share. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">About Us</a>
+            <a href="#">How It Works</a>
+            <a href="#">FAQ</a>
+            <a href="#">Contact</a>
+        </div>
+        
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        
+        <p>&copy; 2023 Kenya Business Hub. All rights reserved.</p>
     </footer>
     
     <script>
@@ -402,131 +549,187 @@
             
             // Referral button
             document.getElementById('referralBtn').addEventListener('click', function() {
-                window.open('https://api.whatsapp.com/send?text=Join%20me%20on%20this%20awesome%20job%20site!%20https://kenyajobshare.com', '_blank');
+                window.open('https://api.whatsapp.com/send?text=Join%20me%20on%20Kenya%20Business%20Hub%20to%20earn%20money%20promoting%20local%20businesses!%20https://kenyabusinesshub.com', '_blank');
             });
             
-            // Sample job data
-            const jobs = [
+            // Kenyan Hotel Businesses data with working images
+            const hotels = [
                 {
                     id: 1,
-                    title: "Safari Hotel Promoter",
-                    description: "Share our luxury hotel deals with your network and earn Ksh 100 per share.",
-                    image: "https://source.unsplash.com/random/600x400/?hotel"
+                    title: "The Sarova Stanley",
+                    description: "Nairobi's oldest 5-star hotel offering luxury accommodation in the city center. Promote their weekend packages.",
+                    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8a2VueWElMjBob3RlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
+                    badge: "Luxury"
                 },
                 {
                     id: 2,
-                    title: "Beauty Salon Ambassador",
-                    description: "Promote our salon services and earn commission for every share.",
-                    image: "https://source.unsplash.com/random/600x400/?salon"
+                    title: "Tribe Hotel Nairobi",
+                    description: "Contemporary boutique hotel in Nairobi's vibrant Gigiri district. Share their business conference facilities.",
+                    image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG5haXJvYml8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
+                    badge: "Boutique"
                 },
                 {
                     id: 3,
-                    title: "Travel Agency Affiliate",
-                    description: "Share our amazing travel packages and earn money for each click.",
-                    image: "https://source.unsplash.com/random/600x400/?travel"
+                    title: "Fairmont The Norfolk",
+                    description: "Historic hotel in Nairobi with elegant rooms and beautiful gardens. Promote their heritage tours.",
+                    image: "https://images.unsplash.com/photo-1568084680786-a84f91d1153c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8a2VueWElMjBob3RlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
+                    badge: "Historic"
                 },
                 {
                     id: 4,
-                    title: "Gym Membership Promoter",
-                    description: "Help us get more members by sharing our gym offers with friends.",
-                    image: "https://source.unsplash.com/random/600x400/?gym"
+                    title: "Villa Rosa Kempinski",
+                    description: "Luxurious 5-star hotel with Italian-inspired architecture in Nairobi. Share their spa specials.",
+                    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8a2VueWElMjBob3RlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
+                    badge: "5-Star"
                 },
                 {
                     id: 5,
-                    title: "Fashion Store Marketer",
-                    description: "Earn by sharing our latest fashion collections with your network.",
-                    image: "https://source.unsplash.com/random/600x400/?fashion"
+                    title: "Diani Reef Beach Resort",
+                    description: "Beachfront resort in Diani with spa, pools, and water sports. Promote their family packages.",
+                    image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGtlbmlhJTIwcmVzb3J0fGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
+                    badge: "Beach"
                 },
                 {
                     id: 6,
-                    title: "Restaurant Promoter",
-                    description: "Share our restaurant deals and earn Ksh 100 for each successful share.",
-                    image: "https://source.unsplash.com/random/600x400/?restaurant"
+                    title: "Hemingways Nairobi",
+                    description: "Exclusive boutique hotel in Karen with personalized butler service. Share their gourmet dining.",
+                    image: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGtlbmlhJTIwcmVzb3J0fGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
+                    badge: "Luxury"
                 },
                 {
                     id: 7,
-                    title: "Tech Store Affiliate",
-                    description: "Promote our tech products and gadgets to earn commission.",
-                    image: "https://source.unsplash.com/random/600x400/?electronics"
+                    title: "Sarova Whitesands",
+                    description: "Luxury beach resort in Mombasa with multiple restaurants and pools. Promote their wedding packages.",
+                    image: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGtlbmlhJTIwcmVzb3J0fGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
+                    badge: "Resort"
                 },
                 {
                     id: 8,
-                    title: "Car Rental Agent",
-                    description: "Share our car rental services and earn money for each referral.",
-                    image: "https://source.unsplash.com/random/600x400/?car"
+                    title: "Enashipai Resort & Spa",
+                    description: "Luxury resort in Naivasha with spa, conference facilities and lake views. Share their team building packages.",
+                    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8a2VueWElMjBob3RlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
+                    badge: "Spa"
                 },
                 {
                     id: 9,
-                    title: "Real Estate Marketer",
-                    description: "Earn by sharing our property listings with potential buyers.",
-                    image: "https://source.unsplash.com/random/600x400/?house"
+                    title: "Serena Beach Resort",
+                    description: "Swahili-style beachfront resort in Mombasa with tropical gardens. Promote their cultural experiences.",
+                    image: "https://images.unsplash.com/photo-1535463731090-e34f4b5098c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGtlbmlhJTIwcmVzb3J0fGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
+                    badge: "Cultural"
                 },
                 {
                     id: 10,
-                    title: "Event Planner Assistant",
-                    description: "Promote our event planning services and earn for each share.",
-                    image: "https://source.unsplash.com/random/600x400/?event"
-                },
-                {
-                    id: 11,
-                    title: "Supermarket Promoter",
-                    description: "Share our supermarket deals and earn commission.",
-                    image: "https://source.unsplash.com/random/600x400/?supermarket"
-                },
-                {
-                    id: 12,
-                    title: "Insurance Affiliate",
-                    description: "Earn by sharing our insurance products with your network.",
-                    image: "https://source.unsplash.com/random/600x400/?insurance"
-                },
-                {
-                    id: 13,
-                    title: "School Marketer",
-                    description: "Promote our educational programs and earn money.",
-                    image: "https://source.unsplash.com/random/600x400/?school"
-                },
-                {
-                    id: 14,
-                    title: "Spa & Wellness Ambassador",
-                    description: "Share our spa packages and earn Ksh 100 per share.",
-                    image: "https://source.unsplash.com/random/600x400/?spa"
-                },
-                {
-                    id: 15,
-                    title: "Photography Studio Promoter",
-                    description: "Earn commission by sharing our photography services.",
-                    image: "https://source.unsplash.com/random/600x400/?photography"
+                    title: "The Cliff Malindi",
+                    description: "Exclusive boutique hotel in Malindi with ocean views and fine dining. Share their romantic getaways.",
+                    image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG5haXJvYml8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
+                    badge: "Boutique"
                 }
             ];
             
-            // Load jobs
-            const jobsContainer = document.getElementById('jobsContainer');
+            // Nairobi Shops data with working images
+            const shops = [
+                {
+                    id: 11,
+                    title: "The Village Market",
+                    description: "Upscale shopping mall in Gigiri with international brands and restaurants. Promote their weekend sales.",
+                    image: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2hvcHBpbmclMjBtYWxsfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
+                    badge: "Mall"
+                },
+                {
+                    id: 12,
+                    title: "Sarit Centre",
+                    description: "One of Nairobi's oldest shopping malls with diverse retail options. Share their loyalty program.",
+                    image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvcHBpbmclMjBtYWxsfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
+                    badge: "Classic"
+                },
+                {
+                    id: 13,
+                    title: "Maasai Market",
+                    description: "Popular open-air market for African crafts, jewelry and souvenirs. Promote their artisan products.",
+                    image: "https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YWZyaWNhbiUyMG1hcmtldHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
+                    badge: "Crafts"
+                },
+                {
+                    id: 14,
+                    title: "Two Rivers Mall",
+                    description: "Largest shopping mall in East Africa with cinema and entertainment. Share their family events.",
+                    image: "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2hvcHBpbmclMjBtYWxsfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
+                    badge: "Mega Mall"
+                },
+                {
+                    id: 15,
+                    title: "Yaya Centre",
+                    description: "Convenient shopping mall in Kilimani with supermarkets and boutiques. Promote their food court.",
+                    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNob3B8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
+                    badge: "Local"
+                }
+            ];
+            
+            // Load hotels
+            const hotelsContainer = document.getElementById('hotelsContainer');
+            const shopsContainer = document.getElementById('shopsContainer');
             
             // Simulate loading delay
             setTimeout(() => {
-                jobsContainer.innerHTML = '';
+                hotelsContainer.innerHTML = '';
+                shopsContainer.innerHTML = '';
                 
-                jobs.forEach(job => {
+                hotels.forEach(hotel => {
                     const jobCard = document.createElement('div');
                     jobCard.className = 'job-card animate__animated animate__fadeIn';
                     jobCard.innerHTML = `
-                        <img src="${job.image}" alt="${job.title}" class="job-image">
+                        <div class="job-image-container">
+                            <img src="${hotel.image}" alt="${hotel.title}" class="job-image" onerror="this.src='https://via.placeholder.com/600x400?text=${encodeURIComponent(hotel.title)}'">
+                            <span class="job-badge">${hotel.badge}</span>
+                        </div>
                         <div class="job-content">
-                            <h3 class="job-title">${job.title}</h3>
-                            <p class="job-description">${job.description}</p>
-                            <span class="earn-tag">Earn Ksh 100</span>
+                            <h3 class="job-title">${hotel.title}</h3>
+                            <p class="job-description">${hotel.description}</p>
+                            <span class="earn-tag">Earn Ksh 150 per share</span>
                             <div class="share-buttons">
-                                <button class="btn btn-whatsapp share-btn" data-job-id="${job.id}" data-job-title="${job.title}" data-platform="whatsapp">
+                                <button class="btn btn-whatsapp share-btn" data-job-id="${hotel.id}" data-job-title="${hotel.title}" data-platform="whatsapp">
                                     <i class="fab fa-whatsapp"></i> WhatsApp
                                 </button>
-                                <button class="btn btn-facebook share-btn" data-job-id="${job.id}" data-job-title="${job.title}" data-platform="facebook">
+                                <button class="btn btn-facebook share-btn" data-job-id="${hotel.id}" data-job-title="${hotel.title}" data-platform="facebook">
                                     <i class="fab fa-facebook-f"></i> Facebook
+                                </button>
+                                <button class="btn btn-instagram share-btn" data-job-id="${hotel.id}" data-job-title="${hotel.title}" data-platform="instagram">
+                                    <i class="fab fa-instagram"></i> Instagram
                                 </button>
                             </div>
                         </div>
                     `;
                     
-                    jobsContainer.appendChild(jobCard);
+                    hotelsContainer.appendChild(jobCard);
+                });
+                
+                shops.forEach(shop => {
+                    const jobCard = document.createElement('div');
+                    jobCard.className = 'job-card animate__animated animate__fadeIn';
+                    jobCard.innerHTML = `
+                        <div class="job-image-container">
+                            <img src="${shop.image}" alt="${shop.title}" class="job-image" onerror="this.src='https://via.placeholder.com/600x400?text=${encodeURIComponent(shop.title)}'">
+                            <span class="job-badge">${shop.badge}</span>
+                        </div>
+                        <div class="job-content">
+                            <h3 class="job-title">${shop.title}</h3>
+                            <p class="job-description">${shop.description}</p>
+                            <span class="earn-tag">Earn Ksh 100 per share</span>
+                            <div class="share-buttons">
+                                <button class="btn btn-whatsapp share-btn" data-job-id="${shop.id}" data-job-title="${shop.title}" data-platform="whatsapp">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </button>
+                                <button class="btn btn-facebook share-btn" data-job-id="${shop.id}" data-job-title="${shop.title}" data-platform="facebook">
+                                    <i class="fab fa-facebook-f"></i> Facebook
+                                </button>
+                                <button class="btn btn-instagram share-btn" data-job-id="${shop.id}" data-job-title="${shop.title}" data-platform="instagram">
+                                    <i class="fab fa-instagram"></i> Instagram
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    shopsContainer.appendChild(jobCard);
                 });
                 
                 // Add event listeners to share buttons
@@ -548,15 +751,15 @@
                 
                 // Update user stats
                 currentUser.linksShared += 1;
-                currentUser.earnings += 100;
-                currentUser.balance += 100;
+                currentUser.earnings += jobId <= 10 ? 150 : 100; // Hotels earn more
+                currentUser.balance += jobId <= 10 ? 150 : 100;
                 
                 // Add transaction
                 const now = new Date();
                 const transaction = {
                     job: jobTitle,
                     date: `${now.toISOString().split('T')[0]} ${now.toLocaleTimeString()}`,
-                    amount: 100
+                    amount: jobId <= 10 ? 150 : 100
                 };
                 
                 currentUser.transactions.unshift(transaction);
@@ -572,10 +775,16 @@
                 }
                 
                 // Open share link based on platform
+                const shareUrl = `https://jobskenya.github.io/JOBS-254/?ref=${currentUser.phone}&job=${jobId}`;
+                let shareText = `Check out ${jobTitle} - ${jobId <= 10 ? "Luxury hotel" : "Popular shop"} in Kenya! ${shareUrl}`;
+                
                 if (platform === 'whatsapp') {
-                    window.open(`https://api.whatsapp.com/send?text=Check%20this%20out!%20${jobTitle}%20-%20https://kenyajobshare.com/job/${jobId}`, '_blank');
+                    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`, '_blank');
                 } else if (platform === 'facebook') {
-                    window.open(`https://www.facebook.com/sharer/sharer.php?u=https://kenyajobshare.com/job/${jobId}`, '_blank');
+                    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(jobTitle)}`, '_blank');
+                } else if (platform === 'instagram') {
+                    // Instagram doesn't support direct sharing, so we'll open in a new tab
+                    window.open(shareUrl, '_blank');
                 }
                 
                 // Show success animation
@@ -584,10 +793,13 @@
                 button.style.backgroundColor = 'var(--success)';
                 
                 setTimeout(() => {
-                    button.innerHTML = platform === 'whatsapp' ? 
-                        '<i class="fab fa-whatsapp"></i> WhatsApp' : 
-                        '<i class="fab fa-facebook-f"></i> Facebook';
-                    button.style.backgroundColor = platform === 'whatsapp' ? 'var(--whatsapp)' : 'var(--facebook)';
+                    button.innerHTML = 
+                        platform === 'whatsapp' ? '<i class="fab fa-whatsapp"></i> WhatsApp' : 
+                        platform === 'facebook' ? '<i class="fab fa-facebook-f"></i> Facebook' : 
+                        '<i class="fab fa-instagram"></i> Instagram';
+                    button.style.backgroundColor = 
+                        platform === 'whatsapp' ? 'var(--whatsapp)' : 
+                        platform === 'facebook' ? 'var(--facebook)' : 'var(--instagram)';
                 }, 2000);
             }
         });
