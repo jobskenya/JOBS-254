@@ -776,12 +776,12 @@
                 
                 // Open share link based on platform
                 const shareUrl = `https://jobskenya.github.io/JOBS-254/?ref=${currentUser.phone}&job=${jobId}`;
-                let shareText = `Check out ${jobTitle} - ${jobId <= 10 ? "Luxury hotel" : "Popular shop"} in Kenya! ${shareUrl}`;
+                let shareText = `REGISTER FOR JOBS ONLINE AND EARN MONEY ${shareUrl}`;
                 
                 if (platform === 'whatsapp') {
                     window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`, '_blank');
                 } else if (platform === 'facebook') {
-                    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(jobTitle)}`, '_blank');
+                    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent('REGISTER FOR JOBS ONLINE AND EARN MONEY')}`, '_blank');
                 } else if (platform === 'instagram') {
                     // Instagram doesn't support direct sharing, so we'll open in a new tab
                     window.open(shareUrl, '_blank');
