@@ -43,7 +43,7 @@
         
         header {
             background-color: white;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -53,7 +53,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 12px 0;
         }
         
         .logo {
@@ -62,14 +62,14 @@
         }
         
         .logo img {
-            width: 40px;
-            height: 40px;
-            margin-right: 10px;
+            width: 36px;
+            height: 36px;
+            margin-right: 8px;
             border-radius: 50%;
         }
         
         .logo h1 {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
@@ -82,7 +82,7 @@
         }
         
         .nav-links li {
-            margin-left: 25px;
+            margin-left: 20px;
             position: relative;
         }
         
@@ -90,6 +90,7 @@
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
+            font-size: 14px;
             display: flex;
             align-items: center;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -97,12 +98,11 @@
         
         .nav-links a:hover {
             color: var(--primary);
-            transform: translateY(-2px);
         }
         
         .nav-links a i {
-            margin-right: 8px;
-            font-size: 18px;
+            margin-right: 6px;
+            font-size: 16px;
         }
         
         .nav-links .active a {
@@ -115,7 +115,7 @@
             bottom: -5px;
             left: 0;
             width: 100%;
-            height: 3px;
+            height: 2px;
             background: linear-gradient(90deg, var(--primary), var(--accent));
             border-radius: 3px;
         }
@@ -124,7 +124,7 @@
             display: none;
             background: none;
             border: none;
-            font-size: 24px;
+            font-size: 22px;
             color: var(--dark);
             cursor: pointer;
         }
@@ -133,199 +133,177 @@
         .profile-header {
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, rgba(67, 97, 238, 0.1), rgba(58, 12, 163, 0.1));
-            border-radius: 16px;
-            padding: 40px;
-            margin: 30px 0;
-            box-shadow: 0 10px 30px rgba(67, 97, 238, 0.1);
-            animation: fadeIn 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
             position: relative;
             overflow: hidden;
         }
         
-        .profile-header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
-            transform: rotate(30deg);
-            z-index: 0;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
         .profile-image {
-            width: 140px;
-            height: 140px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid white;
-            margin-right: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border: 3px solid white;
+            margin-right: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             z-index: 1;
-            transition: all 0.3s ease;
-        }
-        
-        .profile-image:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
         
         .profile-info {
             z-index: 1;
+            flex: 1;
         }
         
         .profile-info h2 {
-            font-size: 32px;
-            margin-bottom: 8px;
+            font-size: 24px;
+            margin-bottom: 5px;
             color: var(--dark);
             font-weight: 700;
-            background: linear-gradient(90deg, var(--dark), var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
         
         .profile-info p {
             color: var(--gray);
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
-            font-size: 16px;
+            font-size: 14px;
         }
         
         .profile-info p i {
-            margin-right: 10px;
+            margin-right: 8px;
             color: var(--primary);
-            font-size: 20px;
+            font-size: 16px;
         }
         
         /* Stats Container */
         .stats-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
         }
         
         .stat-card {
             background-color: white;
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary), var(--accent));
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
         
         .stat-card h3 {
-            font-size: 16px;
+            font-size: 14px;
             color: var(--gray);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-weight: 500;
         }
         
         .stat-card .value {
-            font-size: 36px;
+            font-size: 24px;
             font-weight: 700;
             color: var(--primary);
             line-height: 1;
             margin-bottom: 5px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-card .description {
+            font-size: 12px;
+            color: var(--gray);
+        }
+        
+        /* Financial Summary */
+        .financial-summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .financial-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            aspect-ratio: 1/1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .financial-card .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(67, 97, 238, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            color: var(--primary);
+            font-size: 18px;
+        }
+        
+        .financial-card .amount {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        
+        .financial-card .label {
+            font-size: 12px;
+            color: var(--gray);
         }
         
         /* Progress Container */
         .progress-container {
-            margin: 40px 0;
+            margin: 25px 0;
             background-color: white;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            animation: slideUp 0.6s 0.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-        }
-        
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
         
         .progress-container h2 {
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             color: var(--dark);
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 700;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .progress-container h2::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 50px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: 2px;
         }
         
         .progress-bar {
-            height: 12px;
+            height: 8px;
             background-color: #f0f2f5;
             border-radius: 10px;
             overflow: hidden;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             position: relative;
-            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         
         .progress-fill {
             height: 100%;
             background: linear-gradient(90deg, var(--primary), var(--accent));
             border-radius: 10px;
-            transition: width 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transition: width 0.8s ease;
             position: relative;
-        }
-        
-        .progress-fill::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to right, rgba(255,255,255,0.2), rgba(255,255,255,0));
-            border-radius: 10px;
         }
         
         .progress-text {
             display: flex;
             justify-content: space-between;
-            font-size: 15px;
+            font-size: 13px;
             color: var(--gray);
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
         
         .progress-text .target {
@@ -335,179 +313,118 @@
         
         .action-buttons {
             display: flex;
-            gap: 20px;
-            margin-top: 30px;
+            gap: 15px;
+            margin-top: 20px;
         }
         
         .btn {
-            padding: 14px 28px;
-            border-radius: 10px;
-            font-size: 16px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: all 0.3s ease;
             border: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: all 0.6s ease;
-        }
-        
-        .btn:hover::before {
-            left: 100%;
+            flex: 1;
         }
         
         .btn i {
-            margin-right: 10px;
-            font-size: 18px;
+            margin-right: 8px;
+            font-size: 16px;
         }
         
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
         }
         
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.2);
         }
         
         .btn-mpesa {
             background: linear-gradient(135deg, var(--mpesa), #008a45);
             color: white;
-            box-shadow: 0 5px 15px rgba(0, 166, 80, 0.3);
         }
         
         .btn-mpesa:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 166, 80, 0.4);
-        }
-        
-        .btn-accent {
-            background: linear-gradient(135deg, var(--accent), #c9184a);
-            color: white;
-            box-shadow: 0 5px 15px rgba(247, 37, 133, 0.3);
-        }
-        
-        .btn-accent:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(247, 37, 133, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 166, 80, 0.2);
         }
         
         .pulse {
-            animation: pulse 2s infinite;
             position: relative;
         }
         
         .pulse::after {
             content: '';
             position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            border: 2px solid var(--primary);
-            border-radius: 14px;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border: 1px solid var(--primary);
+            border-radius: 10px;
             animation: pulseBorder 2s infinite;
             opacity: 0;
         }
         
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
         @keyframes pulseBorder {
             0% { transform: scale(1); opacity: 0.7; }
-            70% { transform: scale(1.3); opacity: 0; }
-            100% { transform: scale(1.3); opacity: 0; }
+            70% { transform: scale(1.05); opacity: 0; }
+            100% { transform: scale(1.05); opacity: 0; }
         }
         
         /* Transactions Container */
         .transactions-container {
             background-color: white;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            margin-bottom: 40px;
-            animation: slideUp 0.6s 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            margin-bottom: 30px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
         
         .transactions-container h2 {
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             color: var(--dark);
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 700;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .transactions-container h2::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 50px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: 2px;
         }
         
         .transactions-table {
             width: 100%;
             border-collapse: separate;
-            border-spacing: 0 10px;
+            border-spacing: 0 8px;
         }
         
         .transactions-table th {
             background-color: #f8f9fa;
             color: var(--gray);
             font-weight: 600;
-            padding: 15px;
+            padding: 12px 15px;
             text-align: left;
-            border-bottom: 2px solid #f0f2f5;
+            font-size: 13px;
         }
         
         .transactions-table td {
-            padding: 15px;
+            padding: 12px 15px;
             background-color: white;
+            font-size: 14px;
             border-bottom: 1px solid #f0f2f5;
-            transition: all 0.3s;
         }
         
         .transactions-table tr:hover td {
             background-color: #f8f9fa;
-            transform: translateX(5px);
-        }
-        
-        .transactions-table tr:first-child td {
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-        
-        .transactions-table tr:last-child td {
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
         }
         
         .amount {
             color: var(--primary);
             font-weight: 600;
-            font-size: 16px;
         }
         
         /* Modal Styles */
@@ -518,93 +435,67 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(5px);
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
             z-index: 1000;
             justify-content: center;
             align-items: center;
-            animation: fadeIn 0.3s;
         }
         
         .modal-content {
             background-color: white;
-            border-radius: 16px;
-            padding: 40px;
-            max-width: 500px;
+            border-radius: 12px;
+            padding: 25px;
+            max-width: 450px;
             width: 90%;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-            position: relative;
-            animation: modalSlideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        
-        @keyframes modalSlideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
         .close-modal {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
+            top: 15px;
+            right: 15px;
+            font-size: 20px;
             color: var(--gray);
             cursor: pointer;
-            transition: all 0.3s;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
-        
-        .close-modal:hover {
-            background-color: #f0f2f5;
-            color: var(--accent);
         }
         
         .modal h3 {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: var(--dark);
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 700;
         }
         
         .modal p {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             color: var(--gray);
-            line-height: 1.6;
+            font-size: 14px;
+            line-height: 1.5;
         }
         
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         
         .form-control {
             width: 100%;
-            padding: 15px;
+            padding: 12px;
             border: 1px solid #e0e3e7;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-        
-        .form-control:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
-            outline: none;
+            border-radius: 8px;
+            font-size: 14px;
         }
         
         .modal-buttons {
             display: flex;
             justify-content: flex-end;
-            gap: 15px;
+            gap: 10px;
         }
         
         .modal-btn {
-            padding: 12px 25px;
-            border-radius: 10px;
-            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
@@ -616,76 +507,54 @@
             color: var(--gray);
         }
         
-        .modal-btn-cancel:hover {
-            background-color: #e0e3e7;
-        }
-        
         .modal-btn-confirm {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
-        }
-        
-        .modal-btn-confirm:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
         }
         
         /* Footer */
         footer {
             text-align: center;
-            padding: 30px 20px;
+            padding: 25px 20px;
             color: var(--gray);
-            font-size: 14px;
+            font-size: 13px;
             background-color: white;
-            margin-top: 50px;
-            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.03);
+            margin-top: 40px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
         }
         
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 25px;
-            margin-bottom: 20px;
+            gap: 20px;
+            margin-bottom: 15px;
         }
         
         .footer-links a {
             color: var(--gray);
             text-decoration: none;
-            transition: all 0.3s;
+            font-size: 13px;
             font-weight: 500;
-        }
-        
-        .footer-links a:hover {
-            color: var(--primary);
-            transform: translateY(-2px);
         }
         
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-bottom: 25px;
+            gap: 15px;
+            margin-bottom: 20px;
         }
         
         .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 45px;
-            height: 45px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background-color: #f0f2f5;
             color: var(--dark);
             transition: all 0.3s;
-            font-size: 18px;
-        }
-        
-        .social-links a:hover {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.3);
+            font-size: 16px;
         }
         
         /* Responsive Styles */
@@ -693,21 +562,12 @@
             .profile-header {
                 flex-direction: column;
                 text-align: center;
-                padding: 30px;
+                padding: 20px;
             }
             
             .profile-image {
                 margin-right: 0;
-                margin-bottom: 25px;
-            }
-            
-            .action-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .btn {
-                width: 100%;
+                margin-bottom: 15px;
             }
         }
         
@@ -715,13 +575,13 @@
             .nav-links {
                 display: none;
                 position: absolute;
-                top: 70px;
+                top: 60px;
                 left: 0;
                 width: 100%;
                 background-color: white;
                 flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                padding: 15px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
                 z-index: 99;
             }
             
@@ -730,42 +590,46 @@
             }
             
             .nav-links li {
-                margin: 15px 0;
+                margin: 10px 0;
             }
             
             .mobile-menu-btn {
                 display: block;
             }
             
-            .stats-container {
+            .financial-summary {
                 grid-template-columns: 1fr;
             }
             
-            .modal-content {
-                padding: 30px 20px;
+            .financial-card {
+                aspect-ratio: unset;
+                flex-direction: row;
+                justify-content: flex-start;
+                text-align: left;
+                padding: 15px;
             }
             
-            .modal-buttons {
+            .financial-card .icon {
+                margin-right: 15px;
+                margin-bottom: 0;
+            }
+            
+            .action-buttons {
                 flex-direction: column;
-            }
-            
-            .modal-btn {
-                width: 100%;
             }
         }
         
         @media (max-width: 576px) {
             .profile-header {
-                padding: 25px 20px;
+                padding: 20px 15px;
             }
             
             .profile-info h2 {
-                font-size: 26px;
+                font-size: 20px;
             }
             
-            .transactions-table {
-                display: block;
-                overflow-x: auto;
+            .stats-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -775,7 +639,7 @@
         <div class="container">
             <nav class="navbar">
                 <div class="logo">
-                    <img src="https://via.placeholder.com/40x40?text=KBH" alt="Kenya Business Hub">
+                    <img src="https://via.placeholder.com/36x36?text=KBH" alt="Kenya Business Hub">
                     <h1>Kenya Business Hub</h1>
                 </div>
                 
@@ -803,18 +667,45 @@
             </div>
         </div>
         
+        <div class="financial-summary">
+            <div class="financial-card">
+                <div class="icon">
+                    <i class="fas fa-wallet"></i>
+                </div>
+                <div class="amount" id="availableBalance">Ksh 3,250</div>
+                <div class="label">Total Balance</div>
+            </div>
+            <div class="financial-card">
+                <div class="icon">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <div class="amount" id="totalDeposits">Ksh 5,000</div>
+                <div class="label">Total Deposits</div>
+            </div>
+            <div class="financial-card">
+                <div class="icon">
+                    <i class="fas fa-link"></i>
+                </div>
+                <div class="amount" id="linksEarnings">Ksh 8,450</div>
+                <div class="label">Links Earnings</div>
+            </div>
+        </div>
+        
         <div class="stats-container">
-            <div class="stat-card animate__animated animate__fadeInUp">
+            <div class="stat-card">
                 <h3>Affiliate Links Shared</h3>
                 <div class="value" id="linksShared">142</div>
+                <div class="description">Total shared links</div>
             </div>
-            <div class="stat-card animate__animated animate__fadeInUp animate__delay-1s">
-                <h3>Total Earnings</h3>
-                <div class="value" id="totalEarnings">Ksh 8,450</div>
+            <div class="stat-card">
+                <h3>Successful Referrals</h3>
+                <div class="value" id="referrals">87</div>
+                <div class="description">Completed purchases</div>
             </div>
-            <div class="stat-card animate__animated animate__fadeInUp animate__delay-2s">
-                <h3>Available Balance</h3>
-                <div class="value" id="availableBalance">Ksh 3,250</div>
+            <div class="stat-card">
+                <h3>Conversion Rate</h3>
+                <div class="value" id="conversionRate">61%</div>
+                <div class="description">Link to purchase ratio</div>
             </div>
         </div>
         
@@ -833,13 +724,13 @@
                     <i class="fas fa-money-bill-wave"></i> Request Withdrawal
                 </button>
                 <button class="btn btn-mpesa" id="depositBtn">
-                    <i class="fas fa-mobile-alt"></i> Deposit via M-Pesa
+                    <i class="fas fa-mobile-alt"></i> Deposit
                 </button>
             </div>
         </div>
         
         <div class="transactions-container">
-            <h2>Transaction History</h2>
+            <h2>Recent Transactions</h2>
             <table class="transactions-table">
                 <thead>
                     <tr>
@@ -953,8 +844,11 @@
             document.getElementById('profilePhone').textContent = currentUser.phone || '+254 712 345 678';
             document.getElementById('profileGender').textContent = currentUser.gender || 'Male';
             document.getElementById('linksShared').textContent = currentUser.linksShared || '0';
-            document.getElementById('totalEarnings').textContent = `Ksh ${(currentUser.earnings || 0).toLocaleString()}`;
+            document.getElementById('linksEarnings').textContent = `Ksh ${(currentUser.earnings || 0).toLocaleString()}`;
             document.getElementById('availableBalance').textContent = `Ksh ${(currentUser.balance || 0).toLocaleString()}`;
+            document.getElementById('totalDeposits').textContent = `Ksh ${(currentUser.deposits || 2000).toLocaleString()}`;
+            document.getElementById('referrals').textContent = currentUser.referrals || '87';
+            document.getElementById('conversionRate').textContent = currentUser.conversionRate || '61%';
             
             // Update progress bar
             const progressFill = document.getElementById('progressFill');
@@ -970,16 +864,6 @@
             const withdrawBtn = document.getElementById('withdrawBtn');
             if ((currentUser.balance || 0) >= 3000) {
                 withdrawBtn.classList.add('pulse');
-                
-                // Trigger confetti if this is the first time reaching the threshold
-                if (!localStorage.getItem('hasReachedThreshold')) {
-                    confetti({
-                        particleCount: 150,
-                        spread: 80,
-                        origin: { y: 0.6 }
-                    });
-                    localStorage.setItem('hasReachedThreshold', 'true');
-                }
             }
             
             // Load transactions
@@ -994,12 +878,6 @@
                     `;
                     transactionsBody.appendChild(row);
                 });
-            } else {
-                transactionsBody.innerHTML = `
-                    <tr>
-                        <td colspan="3" style="text-align: center; color: var(--gray); padding: 20px;">No transactions yet. Start sharing businesses to earn!</td>
-                    </tr>
-                `;
             }
             
             // Withdrawal modal logic
@@ -1060,17 +938,19 @@
                     return;
                 }
                 
-                // Simulate M-Pesa STK push (in a real app, this would call the Daraja API)
+                // Simulate M-Pesa STK push
                 alert(`M-Pesa STK push for Ksh ${amount} has been sent to your phone. Please complete the payment on your mobile device.`);
                 
-                // Update user balance (in a real app, this would happen after payment confirmation)
+                // Update user balance
                 currentUser.balance = (currentUser.balance || 0) + amount;
+                currentUser.deposits = (currentUser.deposits || 0) + amount;
                 localStorage.setItem('currentUser', JSON.stringify(currentUser));
                 
                 // Update UI
                 document.getElementById('availableBalance').textContent = `Ksh ${currentUser.balance.toLocaleString()}`;
+                document.getElementById('totalDeposits').textContent = `Ksh ${currentUser.deposits.toLocaleString()}`;
                 
-                // Add transaction (in a real app, this would be a separate transaction type)
+                // Add transaction
                 const now = new Date();
                 const transaction = {
                     job: 'M-Pesa Deposit',
@@ -1093,19 +973,10 @@
                     <td class="amount">+Ksh ${transaction.amount.toLocaleString()}</td>
                 `;
                 
-                if (transactionsBody.querySelector('tr td[colspan="3"]')) {
-                    transactionsBody.innerHTML = '';
-                }
-                
                 transactionsBody.prepend(row);
                 
                 mpesaModal.style.display = 'none';
                 depositAmount.value = '';
-                
-                // Update progress bar
-                const progressPercentage = Math.min((currentUser.earnings / 3000) * 100, 100);
-                progressFill.style.width = `${progressPercentage}%`;
-                earnedAmount.textContent = `Ksh ${currentUser.earnings.toLocaleString()} earned`;
             });
             
             // Close modals when clicking outside
